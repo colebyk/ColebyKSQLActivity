@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            progressTextView.setText("Connecting to databse...");
+            progressTextView.setText("Connecting to database...");
         }
 
         @Override
@@ -73,11 +73,12 @@ public class MainActivity extends AppCompatActivity {
                 Class.forName(JDBC_DRIVER);
                 conn = DriverManager.getConnection(DB_URL, DbStrings.USERNAME, DbStrings.PASSWORD);
                 stmt =  conn.createStatement();
+
                 String sql = "SELECT * FROM fruits";
                 ResultSet rs = stmt.executeQuery(sql);
 
                 while (rs.next()) {
-                    String name = rs.getString("name");
+                    String name = rs.getString("fruitname");
                     double price = rs.getDouble("price");
 
                     fruitsMap.put(name, price);
