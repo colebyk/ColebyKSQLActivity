@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         static final String DB_URL = "jdbc:mysql://" +
                 DbStrings.DATABASE_URL + "/" +
                 DbStrings.DATABASE_NAME;
+        //static final String DB_URL = "jdbc:mysql://" + DbStrings.DATABASE_URL + "/" + DbStrings.DATABASE_NAME;
 
 
         @Override
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 ResultSet rs = stmt.executeQuery(sql);
 
                 while (rs.next()) {
+                    //String name = rs.getString("fruitname"); //for local machine DB
                     String name = rs.getString("fruitname");
                     double price = rs.getDouble("price");
 
